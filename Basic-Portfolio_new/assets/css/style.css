@@ -1,0 +1,126 @@
+h1 {
+
+    background-color: #4aaaa5;
+    color: #777777;
+    font-family 'Georgia', Times, Times New Roman, serif;
+    font-size: 24px;
+   
+    }
+
+h1 {
+
+        background-color: #4aaaa5;
+        color: #777777;
+        font-family 'Georgia', Times, Times New Roman, serif;
+        font-size: 24px;
+       
+        }
+
+h2 {
+
+    color: #4aaaa5;
+    font-family: 'Georgia', Times, Times New Roman, serif;
+    font-size: 20px;
+
+}
+
+    p. para1 {
+
+        Font-family: 'Arial, 'helvetica Neue', Helvetica, sans-serif;
+        color: #777777;
+        font-size: 16px;
+        line-height: 
+        background-color:
+        padding:
+        border-color:
+        border-width:
+        border-style:
+        margin:
+}
+
+p. para2 {
+
+
+}
+
+p. para3  {
+
+
+}
+
+#box { 
+
+    background-color: #ffffff;
+    width: 960px;
+    height: 600px;
+    margin: 10px 10px 20px 40px;
+    color: 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
+    padding: 25px 25pc 30px 10px;
+    border-style:solid;
+    border-width: 22px;
+    background-color: #e2ecec;
+    border-color:#4aaaa5;
+
+}
+
+.box-set {
+
+
+}
+
+.box {
+
+
+}
+
+.box-1 {
+
+
+}
+
+
+
+.box-2 {
+
+
+}
+
+
+
+.box-3 {
+
+
+}
+
+
+
+.box-4 {
+
+
+}
+
+
+
+
+#sidebar {
+    float: left;
+}
+
+#maincontent {
+    float: right;
+}
+
+.ClearFix::after {
+    content: " ";
+    display: block;
+    clear: both;
+}
+
+@media screen and (max-width: 768px) {
+
+    body {
+      background-color: yellow;
+    }
+} 
+
+   

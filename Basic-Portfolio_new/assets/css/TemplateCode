@@ -1,0 +1,39 @@
+     Colors:
+Teal = #4aaaa5
+Reg Font = #777777
+Main Header background = #ffffff
+Main Header Border Color = #cccccc
+Footer BG Color = #666666
+Main Content BG Color = #ffffff
+
+     Fonts:
+Heading Fonts = Font-family: 'Georgia', Times, Times New Roman, serif;
+All other fonts = Font-family: 'Arial, 'helvetica Neue', Helvetica, sans-serif;
+
+     Background Images - Find on Subtle Patterns website
+
+Main section size = 960 px
+
+Use Page Ruler extension to measure the size of elements
+
+
+
+
+p. paral1 {
+    color:
+    font-size:
+    line-height:
+    background-color:
+    padding:
+    border-color:
+    border-width:
+    border-style:
+    margin:
+}
+
+{
+    width: 320px;
+    padding: 10px;
+    border: 5px solid gray;
+    margin: 0; 
+}
