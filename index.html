@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <!-- Add link to the jQuery Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!-- Add link to Bootstrap-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+   <!-- Add link css-->
+   <link rel="stylesheet" type="text/css" href="assets\css\style.css" />
+
+  <title>The Psychic Game</title>
+
+</head>
+
+
+<body>
+   
+
+  <h1>The Psychic Game</h1>
+  <br>
+
+  <h3>Guess the letter I'm thinking of.....</h3>
+
+  <h3>Wins:</h3>
+
+  <h3>Loses:</h3>
+
+  <h3>Your Guesses so Far:</h3>
+    
+  <div id="display"></div>
+  <div id="buttons"></div>
+  <button id="clear">clear</button>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+
+     
+      // Create letter array
+      var letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "_"];
+      var main = $("body");
+
+      // Find in DOM
+      var btns = main.find("#buttons");
+
+    
+      // For Loop
+      for (var i = 0; i < letters.length; i++) {
+
+        //Inside the loop...
+
+        // Create a variable named "letterBtn" equal to $("<button>") Copied from Fridge Game. I like buttons. Let's see if I can make it work;
+        var letterBtn = $("<button>");
+
+        // Then give each "letterBtn" the following classes: "letter-button" "letter" "letter-button-color".
+        letterBtn.addClass("letter-button letter letter-button-color");
+
+        // Then give each "letterBtn" a data-attribute called "data-letter".
+        letterBtn.attr("data-letter", letters[i]);
+
+        // Then give each "letterBtns" a text equal to "letters[i]".
+        letterBtn.text(letters[i]);
+
+        // Finally, append each "letterBtn" to the "#buttons" div (provided).
+        btns.append(letterBtn);
+
+      }
+
+
+      // On clicks for letters -
+    
+      btns.on("click", ".letter-button", function() {
+
+        // Create a variable called "letters" and set the variable equal to a new div.
+        var letters = $("<div>");
+
+        // Give each "letter" the following classes: "letter letter-color".
+        letters.addClass("letter letter-color");
+
+        letters.text($(this).attr("data-letter"));
+
+        // Display Letter
+        main.find("#display").append(letters);
+
+      });
+
+      
+      
+
+      // Create an "on-click" event attached to the "#clear" button id.
+      main.on("click", "#clear", function() {
+
+       
+
+        // Use the jQuery "empty()" method to clear the contents of the "#display" div.
+    
+        main.find("#display").empty(); 
+
+      });
+
+    
+
+    // Shall we play a game
+
+    document.onkeyup = function(event) {
+
+//ctrl+r to refresh page, but also to set lettersGuessed by player to ''.
+//the 'r' was being recorded as a guess.
+if (event.keyCode == 73 && event.ctrlKey) {
+    startGame();
+}
+
+//allows only A-Z on keyboard to be registered as answers
+else if (event.keyCode >= 65 && event.keyCode <= 90) {
+
+    var key = event.key;
+    console.log(computerChoice);
+    if (guesses != 0) {
+            lettersGuessed += key + ', ';
+            if (key == computerChoice) {
+                wins++;
+                display.innerHTML = "You WIN! The computer chose " + computerChoice +
+                                    "<br/> To play again press any button.";
+                startGame();
+            }
+            else if (key != computerChoice && guesses != 0) {
+                guesses--;
+                displayResults('Keep Guessing!', key, 'Not Telling!' , guesses);
+            }
+        }
+        else if (guesses == 0) {
+            losses++;
+            display.innerHTML = "You LOSE! The computer chose: " + computerChoice +
+                                "<br/> To play again press any button.";
+            startGame();
+        }
+    
+
+//this runs when ctrl+r is hit. shouldn't this not run? for some reason its reading the ctrl part
+//when I press ctrl+r.
+else {
+    alert("Only A-Z allowed.");
+}
+};
+  </script>
+</body>
+
+</html>
