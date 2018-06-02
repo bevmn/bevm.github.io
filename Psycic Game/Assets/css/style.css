@@ -1,0 +1,44 @@
+/* Not going to lie. I copied much of this from the fridge game.*/
+
+body 
+
+.h1 { 
+    color: rgb(21, 0, 139);
+}
+
+.h3 { 
+    color: rgb(139, 0, 0);
+}
+
+  .letter {
+    width: 30px;
+    height: 30px;
+    border-style: solid;
+    padding: 2px;
+    float: left;
+    margin: 2px;
+  }
+
+  .letter-button-color {
+    color: rgb(202, 122, 30);
+  }
+
+/*
+  #display {
+    margin-top: 78px;
+    height: 500px;
+    width: 220px;
+    margin-left: 60px;
+  }*/
+
+  #buttons {
+    padding-top: 60px;
+  }
+
+  #clear {
+    margin-left: 20px;
+    font-size: 25px;
+    color: black;
+    border-style: solid;
+    width: 100px;
+  }
