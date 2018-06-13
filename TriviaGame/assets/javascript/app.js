@@ -16,7 +16,7 @@ $( document ).ready(function() {
                 answer: 1
             }, {
                 question: 'Who did the musical score for the movie?',
-                possibles: ['Luther Vandross', 'Jack Black', 'Harry Connick Jr.', 'Bill Joel'],
+                possibles: ['Luther Vandross', 'Jack Black', 'Harry Connick Jr', 'Bill Joel'],
                 id: 'question-three',
                 answer: 3
             }, {
@@ -77,8 +77,10 @@ $( document ).ready(function() {
     // This initializes the button that starts the game 
         $(".startGame").on("click", function (){
     // when the start button clicked, the div with the questions that was hidden is shown
+            run();
+
             $('.wrapper').show();
-            console.log('hello');
+            // console.log('hello');
     
             $(this).hide();
         });
@@ -115,14 +117,13 @@ $( document ).ready(function() {
         }
     
         // Run the function
-        run();
     
     // this function dynamically creates the inputs needed for the form and relates them to the
     // items held within the game object 
     function formTemplate(data) {
     // the first variable relates the form field for question with the data in the object for
     // each question so that the questions can be inputed into that form field
-        var qString = "<form id='questionOne'>"+ data.question +"<br>";
+        var qString = "<form id="+data.id+">"+ data.question +"<br>";
     // this variable to access the question object's possibles array needed to answer each question
         var possibles = data.possibles;
     // a for loop to go through the possibles array for each question to add the values of each possibles
@@ -130,7 +131,7 @@ $( document ).ready(function() {
     // associated
         for (var i = 0; i < possibles.length; i++) {
             var possible = possibles[i];
-            console.log(possible);
+            // console.log(possible);
             qString = qString + "<input type='radio' name='"+data.id+"' value="+ i +">"+possible;
     
         }
@@ -151,10 +152,17 @@ $( document ).ready(function() {
     
     // function that 
     function isCorrect(question){
-        var answers = $('[name='+question.id+']');
+                var answers = $('[name='+question.id+']');
+                console.log(answers)
+
         var correct = answers.eq(question.answer);
-        var isChecked = correct.is(':checked');
-        return isChecked;
+        
+
+        return +correct.attr('value') === question.answer
+        
+        // console.log(+correct.attr('value'), 'is correct variable', question.answer, ', is question.answer')
+        // var isChecked = correct.is(':checked');
+        // return isChecked;
     }
     
     // call the buildQuestions function
@@ -182,6 +190,7 @@ $( document ).ready(function() {
     // increments up the correct score
         for (var i = 0; i<game.questions.length; i++) {
             if (isCorrect(game.questions[i])) {
+                // console.log('correct')
                 correct++;
             } else {
     // then this statement runs the questions at each index through the checkAnswered function
@@ -226,4 +235,6 @@ $( document ).ready(function() {
         $("#messageDiv").html("Game Over!");
         })
     });
+
+    
     
