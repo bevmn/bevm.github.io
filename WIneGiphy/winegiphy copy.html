@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>My Birthstone is a Wine Cork</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+  <div id="buttons">
+
+    <button data-wine="cabernet sauvignon">
+      God made Cabernet Sauvignon, whereas the devil made Pinot Noir
+    </button>
+    
+    <button data-wine="barolo">
+      Barolo is a wine worth devoting yourself to.
+    </button>
+
+    <button data-wine="malbec">
+        Keep calm and drink malbec
+    </button>
+
+    <button data-wine="chardonay">
+        Chardonnay is a red masquerading as a white.
+    </button>
+
+    <button data-wine="white bordeaux">
+        The great bordeaux most wine lovers are missing out on.
+   </button>
+
+   <button data-wine="champagne">
+        In victory you deserve champagne. In defeat you need it.
+   </button>
+
+  </div>
+
+  <div id="splended-wines">
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript">
+    $("button").on("click", function() {
+      var wine = $(this).attr("data-wine");
+      var queryURL = "https://giphy.com/search/wine" + wine + "&api_key=S54YOcpzeB6K9jwxT5BxtZ5w4YCx6dYK=10";
+
+      $.ajax({
+        url: queryURL,
+        method: "GET"
+      })
+        .then(function(response) {
+          var results = response.data;
+
+          for (var i = 0; i < results.length; i++) {
+            var gifDiv = $("<div class='item'>");
+
+            var rating = results[i].rating;
+
+            var p = $("<p>").text("Rating: " + rating);
+
+            var wineImage = $("<img>");
+            wineImage.attr("src", results[i].images.fixed_height.url);
+
+            gifDiv.prepend(p);
+            gifDiv.prepend(wineImage);
+
+            $("#gifs-appear-here").prepend(gifDiv);
+          }
+        });
+    
+
+//<script type="text/javascript">
+    $(".gif").on("click", function() {
+      // The attr jQuery method allows us to get or set the value of any attribute on our HTML element
+      var wine = $(this).attr("data-wine");
+      // If the clicked image's state is still, update its src attribute to what its data-animate value is.
+      // Then, set the image's data-state to animate
+      // Else set src to the data-still value
+      if (wine === "still") {
+        $(this).attr("src", $(this).attr("data-animate"));
+        $(this).attr("data-wine", "animate");
+      } else {
+        $(this).attr("src", $(this).attr("data-still"));
+        $(this).attr("data-wine", "still");
+      };
+
+  </script>
+
+</body>
+
+</html>
