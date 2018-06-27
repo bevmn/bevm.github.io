@@ -1,0 +1,41 @@
+body {
+    background-color: rgb(123, 102, 216)
+   }
+
+
+
+  h1 {
+    text-align: center;
+    color: rgb(233, 232, 241);
+}
+
+  h2 {
+    text-align: center;
+    color: rgb(56, 38, 138);
+}
+  
+h3 {
+    text-align: center;
+    color: rgb(230, 228, 238);
+}
+
+h2 {
+    text-align: center;
+    color: rgb(56, 38, 138);
+}
+  
+label {
+font: rgb(56, 38, 138);
+}
+
+form-group {
+    background-color: rgb(56, 38, 138);
+    }
+
+    .button {
+
+
+    }
+
+
+  
