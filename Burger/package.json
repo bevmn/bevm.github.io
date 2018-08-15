@@ -1,0 +1,22 @@
+{
+  "name": "Burger",
+  "version": "1.0.0",
+  "description": "* Creating and Seeding the database     | id | burger_name            | Devoured |      | -- | ----------------------- | ----------      | 1  | Fireball                | yes              | 2  | Cheddar Delight         | no              | 3  | Napa Cab                | yes          | 4  | Blakc and Blue          | yes       | 5  | Bean Boss               | no",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "express-handlebars": "^3.0.0",
+    "mysql": "^2.16.0",
+    "mysql2": "^1.6.1",
+    "sequelize": "^4.38.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "Bev",
+  "license": "ISC"
+}
